@@ -37,11 +37,11 @@ internal object AutoEZ : Module(
 
     @Suppress("UNUSED")
     private enum class MessageMode(val text: String) {
-        GG("gg, $NAME"),
-        ONTOP("KAMI BLUE on top! ez $NAME"),
-        EZD("You just got ez'd $NAME"),
-        EZ_HYPIXEL("$HYPIXEL_MESSAGE $NAME"),
-        NAENAE("You just got naenae'd by kami blue plus, $NAME"),
+        GG("gg, $NAME 华 风 秋 韵 洛 水 天 依"),
+        ONTOP("Asgard on top! 华 风 秋 韵 洛 水 天 依 Ezzzzz $NAME"),
+        EZD("You just got ez'd $NAME 华 风 秋 韵 洛 水 天 依"),
+        EZ_HYPIXEL("$HYPIXEL_MESSAGE $NAME 华 风 秋 韵 洛 水 天 依"),
+        NAENAE("You just got naenae'd by Asgard 华 风 秋 韵 洛 水 天 依, $NAME"),
         CUSTOM("");
     }
 

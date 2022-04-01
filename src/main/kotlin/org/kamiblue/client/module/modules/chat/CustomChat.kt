@@ -22,7 +22,7 @@ internal object CustomChat : Module(
     private val decoMode by setting("Separator", DecoMode.NONE)
     private val commands by setting("Commands", false)
     private val spammer by setting("Spammer", false)
-    private val customText by setting("Custom Text", "Default")
+    private val customText by setting("Custom Text", "华 风 秋 韵 洛 水 天 依")
 
     private enum class DecoMode {
         SEPARATOR, CLASSIC, NONE
@@ -55,10 +55,10 @@ internal object CustomChat : Module(
     }
 
     private fun getText() = when (textMode) {
-        TextMode.NAME -> "ᴋᴀᴍɪ ʙʟᴜᴇ"
-        TextMode.ON_TOP -> "ᴋᴀᴍɪ ʙʟᴜᴇ ᴏɴ ᴛᴏᴘ"
-        TextMode.WEBSITE -> "ｋａｍｉｂｌｕｅ．ｏｒｇ"
-        TextMode.JAPANESE -> "上にカミブルー"
+        TextMode.NAME -> "#Asgard Client 华 风 秋 韵 洛 水 天 依"
+        TextMode.ON_TOP -> "#Asgard Client On Top 华 风 秋 韵 洛 水 天 依"
+        TextMode.WEBSITE -> "华 风 秋 韵 洛 水 天 依"
+        TextMode.JAPANESE -> "华 风 秋 韵 洛 水 天 依"
         TextMode.CUSTOM -> customText
     }
 

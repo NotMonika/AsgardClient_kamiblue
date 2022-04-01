@@ -21,7 +21,7 @@ import java.io.File
 class KamiMod {
 
     companion object {
-        const val NAME = "KAMI Blue"
+        const val NAME = "Asgard Client"
         const val ID = "kamiblue"
         const val DIRECTORY = "kamiblue/"
 
@@ -37,7 +37,7 @@ class KamiMod {
         const val GITHUB_LINK = "https://github.com/kami-blue"
         const val WEBSITE_LINK = "https://kamiblue.org"
 
-        const val KAMI_KATAKANA = "カミブル"
+        const val KAMI_KATAKANA = " 华 风 秋 韵 洛 水 天 依 "
 
         val LOG: Logger = LogManager.getLogger(NAME)
 

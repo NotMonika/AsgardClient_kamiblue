@@ -12,6 +12,7 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraftforge.common.ForgeHooks;
+import org.apache.logging.log4j.Logger;
 import org.kamiblue.client.event.KamiEventBus;
 import org.kamiblue.client.event.events.GuiEvent;
 import org.kamiblue.client.event.events.RunGameLoopEvent;
@@ -23,7 +24,12 @@ import org.kamiblue.client.module.modules.combat.CrystalAura;
 import org.kamiblue.client.module.modules.player.BlockInteraction;
 import org.kamiblue.client.plugin.PluginError;
 import org.kamiblue.client.util.Wrapper;
+import org.lwjgl.LWJGLException;
+import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.PixelFormat;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -33,6 +39,37 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Minecraft.class)
 public abstract class MixinMinecraft {
 
+    @Final @Shadow
+    private static Logger LOGGER;
+
+    @Shadow
+    private boolean fullscreen;
+
+    /**
+     *
+     */
+    @Overwrite
+    private void createDisplay() throws LWJGLException {
+        Display.setResizable(true);
+        Display.setTitle("Asgard ON TOP >> Minecraft 1.12.2 >> 华 风 秋 韵 洛 水 天 依");
+        try {
+            Display.create((new PixelFormat()).withDepthBits(24));
+        } catch (LWJGLException lwjglexception) {
+            LOGGER.error("Couldn't set pixel format", lwjglexception);
+            try {
+                Thread.sleep(1000L);
+            } catch (InterruptedException ignored) {
+            }
+            if (this.fullscreen) {
+                this.updateDisplayMode();
+            }
+            Display.create();
+        }
+    }
+
+    @Shadow
+    private void updateDisplayMode() {
+    }
     @Shadow public WorldClient world;
     @Shadow public EntityPlayerSP player;
     @Shadow public GuiScreen currentScreen;

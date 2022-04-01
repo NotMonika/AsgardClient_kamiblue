@@ -7,16 +7,17 @@ import org.kamiblue.client.module.modules.misc.AntiDisconnect
 import org.kamiblue.client.util.color.ColorConverter
 import org.kamiblue.client.util.text.format
 
-class KamiGuiAntiDisconnect : GuiScreen() {
+class
+KamiGuiAntiDisconnect : GuiScreen() {
 
     private var disconnectCount = AntiDisconnect.presses.value
     private var button = GuiButton(1, width / 2 - 100, 230, buttonText)
-    private val buttonText get() = TextFormatting.RED format "Press me $disconnectCount time(s) to disconnect."
+    private val buttonText get() = TextFormatting.RED format "按我$disconnectCount 秒（次）退出游戏"
 
     override fun initGui() {
         super.initGui()
         button = GuiButton(1, width / 2 - 100, 230, buttonText)
-        buttonList.add(GuiButton(0, width / 2 - 100, 200, "Back to Game"))
+        buttonList.add(GuiButton(0, width / 2 - 100, 200, "回到游戏"))
         buttonList.add(button)
     }
 

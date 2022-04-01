@@ -91,7 +91,7 @@ internal object ClickGUI : Module(
             }
         }
 
-        bind.value.setBind(Keyboard.KEY_Y)
+        bind.value.setBind(Keyboard.KEY_RCONTROL)
         scaleSetting.listeners.add {
             settingTimer.reset()
         }
